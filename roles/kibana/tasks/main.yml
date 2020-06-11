@@ -1,0 +1,57 @@
+# install Kibana by OS_family
+- name: Install this role on {{ansible_os_family}}
+  include: "{{ansible_os_family}}.yml"
+
+# configure Kibana
+- name: enable ipaddress
+  lineinfile:
+    path: /etc/kibana/kibana.yml
+    regexp: '#server.port: 5601'
+    line: 'server.port: 5601'
+    state: present
+    backrefs: yes
+
+- name: http.port
+  lineinfile:
+    path: /etc/kibana/kibana.yml
+    regexp: '#server.host: "localhost"'
+    line: 'server.host: "0.0.0.0"'
+    state: present
+    backrefs: yes
+
+- name: elasticsearch.hosts
+  lineinfile:
+    path: /etc/kibana/kibana.yml
+    regexp: '#elasticsearch.hosts: ["http://localhost:9200"]'
+    line: 'elasticsearch.hosts: ["http://localhost:9200"]'
+    state: present
+    backrefs: yes
+
+#- name: run logstash
+#  shell: /usr/share/logstash/bin/logstash -e 'input { stdin { } } output { stdout {} }'
+
+- name: Restart Kibana
+  service:
+    name: kibana.service
+    state: restarted
+    enabled: yes
+
+# set soft link, -f enforce the exist links
+# ln -sf src des
+- name: set soft link
+  shell: |
+    ln -sf /var/log/Kibana  /data/log/
+    ln -sf /var/lib/Kibana  /data/
+    ln -sf /etc/Kibana/Kibana.yml /data/config/
+
+# Check version,
+# must use sudo sh -c to solve the no-root permission
+- block:
+  - name: Check Kibana Version
+    shell: sudo sh -c "echo `rpm -qa|grep Kibana |sed -n 1p` 1>> /data/logs/install_version.txt"
+
+# check service state
+- name: Check Kibana Service
+  shell: systemctl status kibana | grep Active*
+  register: check_kibana_service
+  notify: check_kibana_service

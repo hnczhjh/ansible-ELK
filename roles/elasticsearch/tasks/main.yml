@@ -1,0 +1,69 @@
+# install Elasticsearch by OS_family
+- name: Install this role on {{ansible_os_family}}
+  include: "{{ansible_os_family}}.yml"
+
+- name: set viturl memory
+  lineinfile:
+    create: yes
+    path: /etc/sysctl.conf
+    line: 'vm.max_map_count=655360'
+
+- name: sysctl -p
+  shell: sysctl -p
+
+# enable  ipaddress
+- name: enable ipaddress
+  lineinfile:
+    path: /etc/elasticsearch/elasticsearch.yml
+    regexp: '#network.host: 192.168.0.1'
+    line: 'network.host: 0.0.0.0'
+
+# enable  initial_master_nodes
+- name: initial_master_nodes
+  lineinfile:
+    path: /etc/elasticsearch/elasticsearch.yml
+    create: yes
+    line: 'cluster.initial_master_nodes: ["node-1", "node-2"]'
+
+- name: http.port
+  lineinfile:
+    path: /etc/elasticsearch/elasticsearch.yml
+    regexp: '#http.port: 9200'
+    line: 'http.port: 9200'
+
+
+#- name: Insert ngnix service  password authority 
+#    path: /etc/security/limits.conf
+#    block: |
+#        * soft nofile 65536
+#        * hard nofile 65536
+#        * soft nproc 2048
+#        * hard nproc 2048
+#        * soft memlock unlimited
+#        * hard memlock unlimited
+
+- name: Restart elasticsearch
+  service:
+    name: elasticsearch.service
+    state: restarted
+    enabled: yes
+
+# set soft link, -b cover the exist links
+# ln -sb src des
+- name: set soft link
+  shell: |
+    ln -sf /var/log/elasticsearch  /data/log/
+    ln -sf /var/lib/elasticsearch /data/
+    ln -sf /etc/elasticsearch/elasticsearch.yml /data/config/
+
+# Check version,
+# must use sudo sh -c to solve the no-root permission
+- block:
+  - name: Check Elasticsearch Version
+    shell: sudo sh -c "echo `rpm -qa|grep elasticsearch |sed -n 1p` 1>> /data/logs/install_version.txt"
+
+# check service state
+- name: Check Elasticsearch Service
+  shell: systemctl status elasticsearch | grep Active*
+  register: check_elasticsearch_service
+  notify: check_elasticsearch_service

@@ -3,15 +3,15 @@
 #### 如何以调试模式启动RabbitMQ服务？
 
 ```
-systemctl stop rabbitmq-server
-rabbitmq-server console
+systemctl stop elasticsearch-server
+elasticsearch-server console
 ```
 
 #### 是否可以通过命令行修改RabbitMQ后台密码？
 
 可以，`rabbitmqctl change_password  admin newpassword`
 
-#### 如果没有域名是否可以部署 RabbitMQ？
+#### 如果没有域名是否可以部署 Elasticsearch？
 
 #### 数据库 root 用户对应的密码是多少？
 

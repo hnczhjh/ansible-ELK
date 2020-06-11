@@ -6,10 +6,10 @@ You should know the differences between the terms **Update** and **Upgrade**([Ex
 - Operating system patching is **Update**, Ubuntu16.04 to Ubuntu18.04 is **Upgrade**
 - MySQL5.6.25 to MySQL5.6.30 is **Update**, MySQL5.6 to MySQL5.7 is **Upgrade**
 
-For RabbitMQ maintenance, focus on the following two Update & Upgrade jobs
+For Elasticsearch maintenance, focus on the following two Update & Upgrade jobs
 
 - Sytem update(Operating System and Running Environment) 
-- RabbitMQ upgrade 
+- Elasticsearch upgrade 
 
 ## System Update
 
@@ -20,10 +20,10 @@ Run an update command to complete the system update:
 apt update && apt upgrade -y
 
 #For Centos&Redhat
-yum update -y --skip-broken
+yum update -y
 ```
 > This deployment package is preconfigured with a scheduled task for automatic updates. If you want to remove the automatic update, please delete the corresponding Cron
 
-## RabbitMQ Upgrade
+## Elasticsearch Upgrade
 
-Refer to the official docs: [Upgrading RabbitMQ](https://www.rabbitmq.com/upgrade.html)
+Refer to the official docs: [Upgrading Elasticsearch](https://www.elasticsearch.com/upgrade.html)

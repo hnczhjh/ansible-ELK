@@ -1,0 +1,11 @@
+# import key
+- name: import key
+  shell: rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
+
+- name: Setting source
+  copy:
+    src: es.repo
+    dest: /etc/yum.repos.d/es.repo
+
+- name: install elasticsearch
+  shell: yum install elasticsearch -y

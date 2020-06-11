@@ -1,17 +1,17 @@
 # Start or Stop the Services
 
-These commands you must know when you using the RabbitMQ of Websoft9
+These commands you must know when you using the Elasticsearch of Websoft9
 
-### RabbitMQ
+### Elasticsearch
 
 ```shell
-sudo systemctl start rabbitmq-server
-sudo systemctl stop rabbitmq-server
-sudo systemctl restart rabbitmq-server
-sudo systemctl status rabbitmq-server
+sudo systemctl start elasticsearch-server
+sudo systemctl stop elasticsearch-server
+sudo systemctl restart elasticsearch-server
+sudo systemctl status elasticsearch-server
 
-# you can use this debug mode if RabbitMQ service can't run
-rabbitmq-server console
+# you can use this debug mode if Elasticsearch service can't run
+elasticsearch-server console
 ```
 
 ### MySQL

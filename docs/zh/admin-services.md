@@ -1,17 +1,17 @@
 # 服务启停
 
-使用由Websoft9提供的 RabbitMQ 部署方案，可能需要用到的服务如下：
+使用由Websoft9提供的 Elasticsearch 部署方案，可能需要用到的服务如下：
 
-### RabbitMQ
+### Elasticsearch
 
 ```shell
-sudo systemctl start rabbitmq-server
-sudo systemctl stop rabbitmq-server
-sudo systemctl restart rabbitmq-server
-sudo systemctl status rabbitmq-server
+sudo systemctl start elasticsearch-server
+sudo systemctl stop elasticsearch-server
+sudo systemctl restart elasticsearch-server
+sudo systemctl status elasticsearch-server
 
-# you can use this debug mode if RabbitMQ service can't run
-rabbitmq-server console
+# you can use this debug mode if Elasticsearch service can't run
+elasticsearch-server console
 ```
 
 ### MySQL

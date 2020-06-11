@@ -1,6 +1,0 @@
-- name: Create Mattermost System User
-  user:
-      name: mattermost 
-      create_home: no 
-      home: /opt/mattermost
-      shell: /usr/sbin/nologin
