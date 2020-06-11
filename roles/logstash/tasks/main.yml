@@ -19,8 +19,8 @@
     state: present
     backrefs: yes
 
-#- name: run logstash
-#  shell: /usr/share/logstash/bin/logstash -e 'input { stdin { } } output { stdout {} }'
+- name: config logstash
+  shell: /usr/share/logstash/bin/logstash -e 'input { stdin { } } output { stdout {} }'
 
 - name: Restart logstash
   service:
