@@ -1,0 +1,22 @@
+
+
+# 变量testpath是路径信息"/testdir"，判断路径是否存
+- debug:
+    msg: "file exist"
+  when: testpath is exists
+  #when: testpath is not exists
+
+# 判断变量：定义，未定义，none
+vars:
+  testvar: "test"
+  testvar1:
+tasks:
+- debug:
+    msg: "Variable is defined"
+  when: testvar is defined
+- debug:
+    msg: "Variable is undefined"
+  when: testvar2 is undefined
+- debug:
+    msg: "The variable is defined, but there is no value"
+  when: testvar1 is none
