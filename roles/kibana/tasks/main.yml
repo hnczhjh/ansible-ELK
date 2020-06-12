@@ -22,7 +22,7 @@
 - name: elasticsearch.hosts
   lineinfile:
     path: /etc/kibana/kibana.yml
-    regexp: '#elasticsearch.hosts: \["http://localhost:9200"\]'
+    regexp: '^#elasticsearch\.hosts'
     line: 'elasticsearch.hosts: ["http://localhost:9200"]'
     state: present
     backrefs: yes
