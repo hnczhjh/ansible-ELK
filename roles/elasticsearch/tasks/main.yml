@@ -23,7 +23,7 @@
   lineinfile:
     path: /etc/elasticsearch/elasticsearch.yml
     create: yes
-    line: 'cluster.initial_master_nodes: ["node-1", "node-2"]'
+    line: 'cluster.initial_master_nodes: ["node-1"]'
 
 - name: http.port
   lineinfile:
