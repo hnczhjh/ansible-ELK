@@ -5,7 +5,7 @@
 
 # Elasticsearch 自动化安装与部署
 
-本项目是由 [Websoft9](https://www.websoft9.com) 研发的 [Elasticsearch](https://elasticsearch.io/) 自动化安装程序，开发语言是 Ansible。使用本项目，只需要用户在 Linux 上运行一条命令，即可自动化安装 Elasticsearch，让原本复杂的安装过程变得没有任何技术门槛。  
+本项目是由 [Websoft9](https://www.websoft9.com) 研发的 [ELK](https://elk.io/) 自动化安装程序，开发语言是 Ansible。使用本项目，只需要用户在 Linux 上运行一条命令，即可自动化安装 Elasticsearch，让原本复杂的安装过程变得没有任何技术门槛。  
 
 本项目是开源项目，采用 LGPL3.0 开源协议。
 
@@ -30,7 +30,7 @@
 
 ## 本项目安装的是 Elasticsearch 最新版吗？
 
-本项目通过[Elasticsearch 官方仓库源](https://packagecloud.io/elasticsearch/elasticsearch-server/install)安装，每次安装均可保证为最新版本。
+本项目通过[Elasticsearch 官方仓库源](ttps://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html)安装，每次安装均可保证为最新版本。
 
 版本号，请通过[官方下载](https://www.elasticsearch.com/download.html)页面查看  
 
