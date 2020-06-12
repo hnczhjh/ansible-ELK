@@ -1,10 +1,10 @@
-- name: set soft link
-  shell: rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
+#- name: set soft link
+#  shell: rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
 
-- name: Setting logstash repo
-  copy:
-    src: log.repo
-    dest: /etc/yum.repos.d/log.repo
+#- name: Setting logstash repo
+#  copy:
+#    src: log.repo
+#    dest: /etc/yum.repos.d/log.repo
 
 - name: install logstash
   shell: sudo yum install logstash -y
