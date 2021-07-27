@@ -1,13 +1,7 @@
-- src: http://github.com/websoft9dev/role_common
-  version: master
-
-- src: http://github.com/websoft9dev/role_jdk
-  version: master
-
-# 根据需求添加相对应的role
-
-- src: http://github.com/websoft9dev/role_preend
-  version: master
-
-- src: http://github.com/websoft9dev/role_end
-  version: master
+- src: http://github.com/websoft9/role_common
+- src: http://github.com/websoft9/role_jdk
+- src: https://github.com/Websoft9/role_elasticsearch
+- src: https://github.com/hnczhjh/role_kibana
+- src: https://github.com/hnczhjh/role_logstash
+- src: http://github.com/websoft9/role_preend
+- src: http://github.com/websoft9/role_end

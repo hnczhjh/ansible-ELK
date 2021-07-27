@@ -1,3 +1,0 @@
-- name: check_logstash_service
-  debug:
-    var: check_logstash_service.stdout

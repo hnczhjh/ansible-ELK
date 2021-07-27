@@ -1,3 +1,0 @@
-- name: check_elasticsearch_service
-  debug:
-    var: check_elasticsearch_service.stdout
